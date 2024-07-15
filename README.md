@@ -1,0 +1,25 @@
+# 疾病管制署資料開放平台 Mirror Site
+
+## 資料來源
+
+[Taiwan CDC Open Data Portal](https://data.cdc.gov.tw/)
+
+Opendata 各資料集下載量、瀏覽量報表。
+
+統計資料更新頻率：1 小時
+
+- CSV: https://data.cdc.gov.tw/doc/OpdDataSetStatistics.csv
+- JSON: https://data.cdc.gov.tw/doc/OpdDataSetStatistics.json
+
+取得單一資料集的 API 資訊：
+
+- API: <https://data.cdc.gov.tw/api/3/action/package_show?id={dataset.資料集網址}">
+
+    Example: <https://data.cdc.gov.tw/api/3/action/package_show?id=tmprescription>
+
+## 相關連結
+
+- [資料集](https://data.cdc.gov.tw/dataset/)
+- [開發人員](https://data.cdc.gov.tw/pages/developer)
+  - OAS 3.0: <https://od.cdc.gov.tw/cdc/Ckan01.json>
+
