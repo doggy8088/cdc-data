@@ -1,0 +1,32 @@
+﻿微生物名稱,政府機關數,醫事機構數,學術機構數,研究機構數,其他機構數,合計數
+Bacillus anthracis,2,0,0,0,0,2
+Brucella abortus,2,0,0,0,0,2
+Brucella canis,1,0,0,0,0,1
+Brucella melitensis,1,0,0,0,0,1
+Brucella suis,2,0,0,0,0,2
+Burkholderia pseudomallei,5,1,0,0,0,6
+Chikungunya virus,4,1,0,1,0,6
+Coxiella burnetii,1,0,0,0,0,1
+Creutzfeldt-Jacob disease（CJD）(prion),1,0,0,0,0,1
+Francisella tularensis,1,0,1,1,0,3
+Histoplasma capsulatum,0,1,2,0,0,3
+"Human Immunodeficiency virus（HIV）type 1 ,2  ",0,0,1,0,0,1
+Influenza A virus subtype H5N1,2,0,0,3,0,5
+Influenza A virus subtype H7N9,2,2,1,2,0,7
+Influenza A virus subtype H7N9 candidate vaccine virus,0,1,0,1,0,2
+Mpox virus(positive specimens),3,0,0,0,0,3
+Mpox virus(West African Clade),2,1,0,1,0,4
+Mycobacterium bovis,3,1,0,1,0,5
+Mycobacterium tuberculosis,9,32,1,2,0,44
+Mycobacterium tuberculosis complex,4,19,0,0,0,23
+"Pasteurella multocida (Type B ""buffalo"" and other virulent strains)",0,1,0,0,0,1
+Rickettsia spp.,0,1,0,0,0,1
+Rickettsia tsutsugamushi,2,1,0,0,0,3
+Rickettsia typhi（mooseri）,2,1,0,0,0,3
+SARS-associated coronavirus (SARS-CoV),1,0,1,1,0,3
+Severe acute respiratory coronavirus 2,18,13,4,10,0,45
+Severe Fever with Thrombocytopenia Syndrome Virus，SFTSV,3,0,0,0,0,3
+Vesicular stomatitis virus,1,0,0,0,0,1
+West Nile virus,2,0,0,0,0,2
+Western equine encephalomyelitis virus,1,0,0,0,0,1
+Yersinia pestis,1,0,1,0,0,2

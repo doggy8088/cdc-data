@@ -1,5 +1,7 @@
 # 疾病管制署資料開放平台 Mirror Site
 
+本 Repo 目前僅同步 `*.csv` 與 `*.xlsx` 資料集過來，每小時同步一次。
+
 ## 資料來源
 
 [Taiwan CDC Open Data Portal](https://data.cdc.gov.tw/)
@@ -22,4 +24,5 @@ Opendata 各資料集下載量、瀏覽量報表。
 - [資料集](https://data.cdc.gov.tw/dataset/)
 - [開發人員](https://data.cdc.gov.tw/pages/developer)
   - OAS 3.0: <https://od.cdc.gov.tw/cdc/Ckan01.json>
+  - [Swagger Editor](https://editor.swagger.io/)
 
