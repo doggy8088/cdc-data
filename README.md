@@ -8,7 +8,7 @@
 
 Opendata 各資料集下載量、瀏覽量報表。
 
-統計資料更新頻率：1 小時
+統計資料更新頻率：每天凌晨五點更新一次。
 
 - CSV: https://data.cdc.gov.tw/doc/OpdDataSetStatistics.csv
 - JSON: https://data.cdc.gov.tw/doc/OpdDataSetStatistics.json
