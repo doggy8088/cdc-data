@@ -1,14 +1,12 @@
 # 疾病管制署資料開放平台 Mirror Site
 
-本 Repo 目前僅同步 `*.csv` 與 `*.xlsx` 資料集過來，每小時同步一次。
+本 Repo 目前僅同步 `*.csv` 資料集過來，每天凌晨五點更新一次。
 
 ## 資料來源
 
 [Taiwan CDC Open Data Portal](https://data.cdc.gov.tw/)
 
 Opendata 各資料集下載量、瀏覽量報表。
-
-統計資料更新頻率：每天凌晨五點更新一次。
 
 - CSV: https://data.cdc.gov.tw/doc/OpdDataSetStatistics.csv
 - JSON: https://data.cdc.gov.tw/doc/OpdDataSetStatistics.json
