@@ -6,16 +6,18 @@
 
 [Taiwan CDC Open Data Portal](https://data.cdc.gov.tw/)
 
-Opendata 各資料集下載量、瀏覽量報表。
+## 資料集統計數據
 
-- CSV: https://data.cdc.gov.tw/doc/OpdDataSetStatistics.csv
-- JSON: https://data.cdc.gov.tw/doc/OpdDataSetStatistics.json
+[DataSetStatistics](https://data.cdc.gov.tw/pages/datasetstatistics): Opendata 各資料集下載量、瀏覽量報表。
+
+- CSV: <https://data.cdc.gov.tw/doc/OpdDataSetStatistics.csv>
+- JSON: <https://data.cdc.gov.tw/doc/OpdDataSetStatistics.json>
 
 取得單一資料集的 API 資訊：
 
-- API: <https://data.cdc.gov.tw/api/3/action/package_show?id={dataset.資料集網址}">
+- API: `https://data.cdc.gov.tw/api/3/action/package_show?id={dataset.資料集網址}`
 
-    Example: <https://data.cdc.gov.tw/api/3/action/package_show?id=tmprescription>
+    範例: <https://data.cdc.gov.tw/api/3/action/package_show?id=tmprescription>
 
 ## 相關連結
 
