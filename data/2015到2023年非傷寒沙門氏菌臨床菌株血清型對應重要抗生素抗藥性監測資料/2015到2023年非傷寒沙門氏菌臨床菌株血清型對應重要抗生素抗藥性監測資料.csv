@@ -1,4 +1,4 @@
-﻿菌株收集代碼 (Strain ID),菌株分離年代 (Year),醫院所在區域 (Region),個案來源縣市 (SourceCounty),Ogroup分型,血清型 (Serotype),AMP_Ampicillin_RIS,SMX_Sulfamethoxazole_RIS,TET_Tetracycline_RIS,CIP_Ciprofloxacin_RIS,FOT_Cefotaxime_RIS,COL_Colistin_RIS
+﻿菌株收集代碼（Strain ID）,菌株分離年代（Year）,醫院所在區域（Region）,個案來源縣市（SourceCounty）,Ogroup分型,血清型（Serotype）,AMP_Ampicillin_RIS,SMX_Sulfamethoxazole_RIS,TET_Tetracycline_RIS,CIP_Ciprofloxacin_RIS,FOT_Cefotaxime_RIS,COL_Colistin_RIS
 R15.0049,2015,中彰投,台中市,O4 (B),Stanley,R,R,R,S,R,S
 R15.0050,2015,中彰投,彰化縣,"O3,10 (E1)",Weltevreden,S,S,S,S,S,S
 R15.0051,2015,中彰投,台中市,O9 (D1),Enteritidis,S,S,S,S,S,R
