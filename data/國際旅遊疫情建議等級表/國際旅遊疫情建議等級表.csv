@@ -1,4 +1,5 @@
 ﻿source,effective,senderName,instruction,web,alert_title,severity_level,alert_disease,areaDesc,areaDesc_EN,circle,ISO3166,areaDetail,ISO3166_2
+"CDC","2025-02-20T00:00:00+08:00","疾病管制署","提醒遵守當地的一般預防措施","https://www.cdc.gov.tw/InternationalEpidemicLevel/Index/NlUwZUNvckRWQ09CbDJkRVFjaExjUT09","國際間旅遊疫情建議","第一級:注意(Watch)","新型A型流感","美國","USA","-100.54,38.82","US","懷俄明州","US-WY"
 "CDC","2025-02-13T00:00:00+08:00","疾病管制署","解除","https://www.cdc.gov.tw/InternationalEpidemicLevel/Index/NlUwZUNvckRWQ09CbDJkRVFjaExjUT09","國際間旅遊疫情建議","解除","伊波拉病毒感染","剛果民主共和國","Congo,Democratic Republic of the","24.52,-3.07","CD","",""
 "CDC","2025-02-13T00:00:00+08:00","疾病管制署","解除","https://www.cdc.gov.tw/InternationalEpidemicLevel/Index/NlUwZUNvckRWQ09CbDJkRVFjaExjUT09","國際間旅遊疫情建議","解除","伊波拉病毒感染","幾內亞","Guinea","-10.87,10.42","GN","",""
 "CDC","2025-02-13T00:00:00+08:00","疾病管制署","提醒遵守當地的一般預防措施","https://www.cdc.gov.tw/InternationalEpidemicLevel/Index/NlUwZUNvckRWQ09CbDJkRVFjaExjUT09","國際間旅遊疫情建議","第一級:注意(Watch)","新型A型流感","美國","USA","-100.54,38.82","US","內華達州","US-NV"
