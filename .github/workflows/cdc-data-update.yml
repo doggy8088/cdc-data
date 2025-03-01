@@ -1,0 +1,111 @@
+name: CDC Data Update
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # Run daily at 7:00 AM
+    - cron: '0 12 * * *'  # Run daily at 12:00 PM
+    - cron: '0 17 * * *'  # Run daily at 5:00 PM
+    - cron: '0 22 * * *'  # Run daily at 10:00 PM
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  update-data:
+    runs-on: windows-latest
+    permissions:
+      contents: write   # Allow write access to the repository contents
+      # actions: read     # Allow read access to GitHub Actions
+      # issues: read      # Allow read access to issues, if needed
+      # pull-requests: write  # Allow write access to pull requests, if applicable
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Reset Download
+        run: |
+            if (Test-Path -Path "data") {
+                Remove-Item -Path "data" -Recurse -Force
+            }
+        shell: pwsh
+        continue-on-error: true
+
+      - name: Download LINQPad8
+        run: curl -sL https://www.linqpad.net/GetFile.aspx?LINQPad8.zip -o ${{ runner.temp }}\LINQPad8.zip
+        shell: cmd
+
+      - name: Extract LINQPad8
+        run: |
+          Expand-Archive -Path "${{ runner.temp }}\LINQPad8.zip" -DestinationPath "${{ runner.temp }}\LINQPad8" -Force
+          dir "${{ runner.temp }}\LINQPad8" -Recurse
+        shell: pwsh
+
+      - name: Add LINQPad to PATH
+        run: echo "${{ runner.temp }}\LINQPad8" >> $GITHUB_PATH
+        shell: bash
+
+      - name: Run LINQ Query
+        run: LPRun8-x64.exe "CDC_OpenData_Downloader.linq"
+        shell: cmd
+
+      - name: Configure git to use GitHub token
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+        shell: bash
+
+      - name: Commit and Push Changes
+        run: |
+          chcp 65001
+
+          git config --global core.quotepath false
+          
+          echo Adding files
+          git add .
+          
+          echo.
+          echo Check for changes
+          git diff-index --quiet HEAD --
+          IF %ERRORLEVEL% EQU 0 (
+              echo No changes to commit.
+              goto End
+          )
+          
+          echo.
+          echo Check for modified filenames
+          git diff --name-only HEAD > changed_files.txt
+          
+          :: Create commit message file
+          echo.> commit_msg.txt
+          
+          :: Check if data/ directory has changes
+          findstr /R "data/" changed_files.txt >nul
+          IF %ERRORLEVEL% EQU 0 (
+              echo Changes detected in data directory.
+              echo Dataset updated >> commit_msg.txt
+          ) ELSE (
+              echo The dataset has no changes. Only update the last update time in the README.md. >> commit_msg.txt
+          )
+          
+          :: Append list of changed files
+          echo.>> commit_msg.txt
+          echo Changed files: >> commit_msg.txt
+          type changed_files.txt >> commit_msg.txt
+          
+          echo.
+          echo Commit using commit_msg.txt
+          git commit -F commit_msg.txt
+          
+          echo.
+          echo Deleting temporary files: changed_files.txt
+          del changed_files.txt
+          echo Deleting temporary files: commit_msg.txt
+          del commit_msg.txt
+          
+          echo.
+          echo git push
+          git push
+          
+          :End
+        shell: cmd
