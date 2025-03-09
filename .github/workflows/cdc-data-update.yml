@@ -83,7 +83,7 @@ jobs:
           findstr /R "data/" changed_files.txt >nul
           IF %ERRORLEVEL% EQU 0 (
               echo Changes detected in data directory.
-              echo Dataset updated >> commit_msg.txt
+              echo Dataset updated on %DATE% %TIME% >> commit_msg.txt
           ) ELSE (
               echo The dataset has no changes. Only update the last update time in the README.md. >> commit_msg.txt
           )
