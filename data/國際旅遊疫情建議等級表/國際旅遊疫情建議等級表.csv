@@ -1,4 +1,5 @@
 ﻿source,effective,senderName,instruction,web,alert_title,severity_level,alert_disease,areaDesc,areaDesc_EN,circle,ISO3166,areaDetail,ISO3166_2
+"CDC","2025-06-27T00:00:00+08:00","疾病管制署","提醒遵守當地的一般預防措施","https://www.cdc.gov.tw/InternationalEpidemicLevel/Index/NlUwZUNvckRWQ09CbDJkRVFjaExjUT09","國際間旅遊疫情建議","第一級:注意(Watch)","M痘","迦納共和國","Ghana","-1.29,8.01","GH","",""
 "CDC","2025-05-23T00:00:00+08:00","疾病管制署","對當地採取加強防護","https://www.cdc.gov.tw/InternationalEpidemicLevel/Index/NlUwZUNvckRWQ09CbDJkRVFjaExjUT09","國際間旅遊疫情建議","第二級:警示(Alert)","M痘","巴西","Brazil","-47.95,-15.75","BR","",""
 "CDC","2025-05-23T00:00:00+08:00","疾病管制署","對當地採取加強防護","https://www.cdc.gov.tw/InternationalEpidemicLevel/Index/NlUwZUNvckRWQ09CbDJkRVFjaExjUT09","國際間旅遊疫情建議","第二級:警示(Alert)","M痘","獅子山","Sierra Leone","-11.76,8.58","SL","",""
 "CDC","2025-05-19T00:00:00+08:00","疾病管制署","對當地採取加強防護","https://www.cdc.gov.tw/InternationalEpidemicLevel/Index/NlUwZUNvckRWQ09CbDJkRVFjaExjUT09","國際間旅遊疫情建議","第二級:警示(Alert)","新型A型流感","中國大陸","China","103.974609,34.307144","CN","陝西省","CN-61"
