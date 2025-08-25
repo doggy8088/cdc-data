@@ -30,7 +30,7 @@ async Task Main()
 
 
 	var deserialized = JsonSerializer.Deserialize<List<Dataset>>(OpdDataSetStatisticsJson);
-	var datasets = deserialized.Where(d => d.資料集識別碼 != "None");
+	var datasets = deserialized.Where(d => d.資料集識別碼 != "None").ToList();
 
 	datasets.Dump(depth: 0);
 
