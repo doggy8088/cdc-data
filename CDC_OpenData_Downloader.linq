@@ -4,6 +4,7 @@
   <Namespace>System.Text.Json.Serialization</Namespace>
   <Namespace>System.Threading.Tasks</Namespace>
   <Namespace>System.Net</Namespace>
+  <Namespace>System.Linq</Namespace>
   <AutoDumpHeading>true</AutoDumpHeading>
 </Query>
 
