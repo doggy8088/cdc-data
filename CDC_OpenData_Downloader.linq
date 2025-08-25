@@ -34,7 +34,7 @@ async Task Main()
 
 	List<資料集下載> links = new();
 
-	foreach (var dataset in datasets)
+	foreach (var dataset in datasets.Where(d => d.資料集識別碼 != "None"))
 	{
 		i++;
 
@@ -56,7 +56,7 @@ async Task Main()
 			await File.WriteAllTextAsync(manifest, json);
 			forceDownload = true;
 		}
-		
+
 		var remoteManifest = JsonSerializer.Deserialize<PackageShowResult>(json);
 
 		//continue;
@@ -111,7 +111,7 @@ async Task Main()
 						// 還有這種 XML 格式，但是連結卻是 7z 的檔案 (What The Fuck!)
 						// "format": "XML",
 						var urlExt = Path.GetExtension(resource.Url.LocalPath);
-						
+
 						if (urlExt.TrimStart('.') != format)
 						{
 							format = urlExt.TrimStart('.');
@@ -159,7 +159,7 @@ async Task Main()
 						if (format == "csv")
 						{
 							string[] new_part_files = await SplitCsvFile(filename);
-							
+
 							links.Last().分段檔案清單 = new_part_files;
 						}
 					}
@@ -177,7 +177,7 @@ async Task Main()
 		var now = DateTime.UtcNow.AddHours(8); // Taiwan Time
 
 		var readmeContent = await File.ReadAllTextAsync(readmePath);
-		
+
 		readmeContent = System.Text.RegularExpressions.Regex.Replace(readmeContent,
 			@"最近更新時間: `\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}`",
 			$"最近更新時間: `{now:yyyy-MM-dd HH:mm:ss}`");
@@ -202,7 +202,7 @@ string[] GetPartsFilePath(string filename)
 
 	// 取得所有 *_partN.csv
 	var part_files = Directory.GetFiles(Path.GetDirectoryName(filename), $"{Path.GetFileNameWithoutExtension(filename)}_part*{fileExt}");
-	
+
 	if (part_files.Length > 0)
 	{
 		return part_files;
@@ -231,9 +231,9 @@ void GenerateLinksForDatasetsTest1()
 string GenerateLinksForDatasets(List<資料集下載> list)
 {
 	StringBuilder sb = new();
-	
+
 	var groups = list.GroupBy(l => l.資料集名稱);
-	
+
 	foreach (var group in groups.ToList())
 	{
 		sb.AppendLine($"### {group.Key}");
@@ -255,7 +255,7 @@ string GenerateLinksForDatasets(List<資料集下載> list)
 			if (item.分段檔案清單.Length > 1)
 			{
 				sbLinks.Length = 0;
-				
+
 				for (int i = 0; i < item.分段檔案清單.Length; i++)
 				{
 					var partFile = Path.GetFileName(item.分段檔案清單[i]);
@@ -264,10 +264,10 @@ string GenerateLinksForDatasets(List<資料集下載> list)
 					sbLinks.Append($"[Part {i+1}]({partUrl})<br>");
 				}
 			}
-			
+
 			sb.AppendLine($"| {sbLinks.ToString()} | {item.資源名稱} | {item.資源描述.Trim().Replace("\r", "").Replace("\n", "<br>")} | {item.資源格式} |");
 		}
-		
+
 		sb.AppendLine();
 	}
 
@@ -318,7 +318,7 @@ async Task<string[]> SplitCsvFile(string file)
 		}
 		$"正在刪除 {file} 檔案".Dump("檔案分段");
 		File.Delete(file);
-		
+
 		return files.ToArray();
 	}
 	else
