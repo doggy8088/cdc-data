@@ -27,7 +27,10 @@ async Task Main()
 	// 請幫我下載 https://data.cdc.gov.tw/doc/OpdDataSetStatistics.json 檔案
 	var OpdDataSetStatisticsJson = await DownloadFileAsync("https://data.cdc.gov.tw/doc/OpdDataSetStatistics.json");
 
-	var datasets = JsonSerializer.Deserialize<List<Dataset>>(OpdDataSetStatisticsJson).Where(d => d.資料集識別碼 != "None");
+
+	var deserialized = JsonSerializer.Deserialize<List<Dataset>>(OpdDataSetStatisticsJson);
+	var datasets = deserialized.Where(d => d.資料集識別碼 != "None");
+
 	datasets.Dump(depth: 0);
 
 	int i = 0;
