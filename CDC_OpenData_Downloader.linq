@@ -1,4 +1,5 @@
 <Query Kind="Program">
+  <Namespace>System</Namespace>
   <Namespace>System.Net.Http</Namespace>
   <Namespace>System.Text.Json</Namespace>
   <Namespace>System.Text.Json.Serialization</Namespace>
@@ -156,9 +157,39 @@ async Task Main()
 							File.Delete(file);
 						}
 
+						// 記錄開始下載時間
+						var downloadStartTime = DateTime.UtcNow.AddHours(8); // Taiwan Time
+						$"開始下載時間: {downloadStartTime:yyyy-MM-dd HH:mm:ss}".Dump("正在下載檔案...");
 						$"正在下載中...".Dump("正在下載檔案...");
-						await DownloadFileAsync(resource.Url.ToString(), filename);
-						$"下載完成。".Dump("正在下載檔案...");
+						
+						try
+						{
+							await DownloadFileAsync(resource.Url.ToString(), filename);
+							
+							// 記錄下載完成時間
+							var downloadEndTime = DateTime.UtcNow.AddHours(8); // Taiwan Time
+							var downloadDuration = downloadEndTime - downloadStartTime;
+							$"下載完成時間: {downloadEndTime:yyyy-MM-dd HH:mm:ss}".Dump("正在下載檔案...");
+							$"下載耗時: {downloadDuration.TotalSeconds:F2} 秒".Dump("正在下載檔案...");
+							$"下載完成。".Dump("正在下載檔案...");
+						}
+						catch (TaskCanceledException ex) when (ex.InnerException is TimeoutException || ex.Message.Contains("timeout"))
+						{
+							// 記錄超時警告
+							var timeoutTime = DateTime.UtcNow.AddHours(8); // Taiwan Time
+							$"警告: 下載超時 (120秒) - {timeoutTime:yyyy-MM-dd HH:mm:ss}".Dump("下載警告");
+							$"跳過檔案: {filename}".Dump("下載警告");
+							continue; // 跳過這次下載，繼續下一個檔案
+						}
+						catch (HttpRequestException ex)
+						{
+							// 記錄網路錯誤
+							var errorTime = DateTime.UtcNow.AddHours(8); // Taiwan Time
+							$"警告: 下載失敗 - {errorTime:yyyy-MM-dd HH:mm:ss}".Dump("下載警告");
+							$"錯誤訊息: {ex.Message}".Dump("下載警告");
+							$"跳過檔案: {filename}".Dump("下載警告");
+							continue; // 跳過這次下載，繼續下一個檔案
+						}
 
 						if (format == "csv")
 						{
@@ -356,6 +387,7 @@ async Task<string> DownloadFileAsync(string url)
 async Task DownloadFileAsync(string url, string filename)
 {
 	using var client = new HttpClient();
+	client.Timeout = TimeSpan.FromSeconds(120); // 設定 120 秒超時
 
 	var response = await client.GetAsync(url);
 	response.EnsureSuccessStatusCode();
