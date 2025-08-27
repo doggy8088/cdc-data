@@ -371,17 +371,40 @@ async Task<string> DownloadFileAsync(string url)
 {
 	using var client = new HttpClient();
 
-	var response = await client.GetAsync(url);
+	for (int attempt = 1; attempt <= 3; attempt++)
+	{
+		try
+		{
+			var response = await client.GetAsync(url);
 
-	if (response.StatusCode == HttpStatusCode.Forbidden)
+			if (response.StatusCode == HttpStatusCode.Forbidden)
+			{
+				$"權限不足，無法下載 {url} 資料集內容".Dump();
+				return null;
+			}
+
+			response.EnsureSuccessStatusCode();
+			return await response.Content.ReadAsStringAsync();
+		}
+		catch (HttpRequestException ex) when (attempt < 3)
+		{
+			var errorTime = DateTime.UtcNow.AddHours(8); // Taiwan Time
+			$"重試 {attempt}/3 - 下載失敗 - {errorTime:yyyy-MM-dd HH:mm:ss}".Dump("下載重試");
+			$"錯誤訊息: {ex.Message}".Dump("下載重試");
+			$"等待 5 秒後重試...".Dump("下載重試");
+			await Task.Delay(5000); // 等待 5 秒
+		}
+	}
+
+	// 如果所有重試都失敗，進行最後一次嘗試讓例外拋出
+	var finalResponse = await client.GetAsync(url);
+	if (finalResponse.StatusCode == HttpStatusCode.Forbidden)
 	{
 		$"權限不足，無法下載 {url} 資料集內容".Dump();
 		return null;
 	}
-
-	response.EnsureSuccessStatusCode();
-
-	return await response.Content.ReadAsStringAsync();
+	finalResponse.EnsureSuccessStatusCode();
+	return await finalResponse.Content.ReadAsStringAsync();
 }
 
 async Task DownloadFileAsync(string url, string filename)
@@ -389,13 +412,36 @@ async Task DownloadFileAsync(string url, string filename)
 	using var client = new HttpClient();
 	client.Timeout = TimeSpan.FromSeconds(120); // 設定 120 秒超時
 
-	var response = await client.GetAsync(url);
-	response.EnsureSuccessStatusCode();
+	for (int attempt = 1; attempt <= 3; attempt++)
+	{
+		try
+		{
+			var response = await client.GetAsync(url);
+			response.EnsureSuccessStatusCode();
+
+			Directory.CreateDirectory(Path.GetDirectoryName(filename));
+
+			using var fileStream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
+			await response.Content.CopyToAsync(fileStream);
+			return; // 成功，退出方法
+		}
+		catch (HttpRequestException ex) when (attempt < 3)
+		{
+			var errorTime = DateTime.UtcNow.AddHours(8); // Taiwan Time
+			$"重試 {attempt}/3 - 下載失敗 - {errorTime:yyyy-MM-dd HH:mm:ss}".Dump("下載重試");
+			$"錯誤訊息: {ex.Message}".Dump("下載重試");
+			$"等待 5 秒後重試...".Dump("下載重試");
+			await Task.Delay(5000); // 等待 5 秒
+		}
+	}
+
+	// 如果所有重試都失敗，進行最後一次嘗試讓例外拋出
+	var finalResponse = await client.GetAsync(url);
+	finalResponse.EnsureSuccessStatusCode();
 
 	Directory.CreateDirectory(Path.GetDirectoryName(filename));
-
-	using var fileStream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
-	await response.Content.CopyToAsync(fileStream);
+	using var finalFileStream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
+	await finalResponse.Content.CopyToAsync(finalFileStream);
 }
 
 public class Dataset
