@@ -754,15 +754,6 @@
 | -------- | -------- | -------- | -------- |
 | [Download](https://doggy8088.github.io/cdc-data/data/%e5%9c%b0%e5%8d%80%e5%b9%b4%e9%bd%a1%e6%80%a7%e5%88%a5%e7%b5%b1%e8%a8%88%e8%a1%a8-%e8%85%b8%e7%97%85%e6%af%92%e6%84%9f%e6%9f%93%e4%bd%b5%e7%99%bc%e9%87%8d%e7%97%87-%e4%be%9d%e5%80%8b%e6%a1%88%e7%a0%94%e5%88%a4%e6%97%a5%e7%b5%b1%e8%a8%88(%e4%bb%a5%e9%80%b1%e7%82%ba%e5%96%ae%e4%bd%8d)/%e5%9c%b0%e5%8d%80%e5%b9%b4%e9%bd%a1%e6%80%a7%e5%88%a5%e7%b5%b1%e8%a8%88%e8%a1%a8.csv) | 地區年齡性別統計表 | 腸病毒感染併發症(以週為單位)-依個案研判日統計 | CSV |
 
-### 登革熱病媒蚊調查資料
-
-| 檔案下載 | 資源名稱 | 資源描述 | 資源格式 |
-| -------- | -------- | -------- | -------- |
-| [Part 1](https://doggy8088.github.io/cdc-data/data/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99%20-%20%e5%85%a8%e5%9c%8b_part1.csv)<br>[Part 2](https://doggy8088.github.io/cdc-data/data/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99%20-%20%e5%85%a8%e5%9c%8b_part2.csv)<br>[Part 3](https://doggy8088.github.io/cdc-data/data/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99%20-%20%e5%85%a8%e5%9c%8b_part3.csv)<br> | 登革熱病媒蚊調查資料 - 全國 | 登革熱病媒蚊調查資料 - 全國 | CSV |
-| [Download](https://doggy8088.github.io/cdc-data/data/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99%20-%20%e5%8f%b0%e5%8d%97%e5%b8%82.csv) | 登革熱病媒蚊調查資料 - 台南市 | 登革熱病媒蚊調查資料 - 台南市 | CSV |
-| [Download](https://doggy8088.github.io/cdc-data/data/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99%20-%20%e9%ab%98%e9%9b%84%e5%b8%82.csv) | 登革熱病媒蚊調查資料 - 高雄市 | 登革熱病媒蚊調查資料 - 高雄市 | CSV |
-| [Download](https://doggy8088.github.io/cdc-data/data/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99/%e7%99%bb%e9%9d%a9%e7%86%b1%e7%97%85%e5%aa%92%e8%9a%8a%e8%aa%bf%e6%9f%a5%e8%b3%87%e6%96%99%20-%20%e5%b1%8f%e6%9d%b1%e7%b8%a3.csv) | 登革熱病媒蚊調查資料 - 屏東縣 | 登革熱病媒蚊調查資料 - 屏東縣 | CSV |
-
 ### 死亡病例地區年齡性別統計表-新冠併發重症-依死亡日統計(以月為單位)
 
 | 檔案下載 | 資源名稱 | 資源描述 | 資源格式 |
@@ -2119,4 +2110,4 @@
 
 ---
 
-最近更新時間: `2025-10-20 12:44:32`
+最近更新時間: `2025-10-21 12:25:17`
