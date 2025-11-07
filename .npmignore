@@ -1,0 +1,26 @@
+# Source files
+src/
+tsconfig.json
+
+# Development files
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Tests
+test/
+*.test.ts
+*.test.js
+
+# CI/CD
+.github/
+
+# Data files (specific to this repo)
+data/
+*.linq
+README.md
+
+# Git
+.git/
+.gitignore

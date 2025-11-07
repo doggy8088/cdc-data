@@ -1,0 +1,50 @@
+name: Publish to NPM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: npm run build
+
+      - name: Check version and publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          # Get local package version
+          LOCAL_VERSION=$(node -p "require('./package.json').version")
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          
+          echo "Local version: $LOCAL_VERSION"
+          echo "Package name: $PACKAGE_NAME"
+          
+          # Get published version from npm registry
+          NPM_VERSION=$(npm view "$PACKAGE_NAME" version 2>/dev/null || echo "0.0.0")
+          
+          echo "NPM version: $NPM_VERSION"
+          
+          # Compare versions
+          if [ "$LOCAL_VERSION" != "$NPM_VERSION" ]; then
+            echo "Version mismatch detected. Publishing to npm..."
+            npm publish --access public
+            echo "Successfully published version $LOCAL_VERSION"
+          else
+            echo "Versions match. Skipping publish."
+          fi
