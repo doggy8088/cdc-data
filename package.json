@@ -17,7 +17,8 @@
   "author": "Will Huang",
   "license": "MIT",
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "NPM_README.md"
   ],
   "devDependencies": {
     "typescript": "^5.3.3"

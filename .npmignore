@@ -19,6 +19,8 @@ test/
 # Data files (specific to this repo)
 data/
 *.linq
+
+# Exclude main README, but keep NPM_README
 README.md
 
 # Git
